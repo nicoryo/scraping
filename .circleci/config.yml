@@ -8,7 +8,7 @@ jobs:
         - RAILS_ENV: 'test'
     - image: circleci/mysql:5.7
       environment:
-        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'password'
         - MYSQL_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/Scraping_app  #自身のアプリディレクトリ名を設定
@@ -48,8 +48,8 @@ jobs:
         name: Run rspec
         command: |
           mkdir /tmp/test-results
-          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-            circleci tests split --split-by=timings)"
+          # TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+          #   circleci tests split --split-by=timings)"
 
           bundle exec rspec \
             --format progress \
