@@ -1,0 +1,2 @@
+class Scrp < ApplicationRecord
+end
